@@ -3,24 +3,28 @@
     state: enabled
     policy: allow
     direction: outgoing
+  notify: restart ufw
 
 - name: Allow kubelet port
   ansible.builtin.ufw:
     rule: allow
     port: "10250"
     proto: tcp
+  notify: restart ufw
 
 - name: Allow NodePort range
   ansible.builtin.ufw:
     rule: allow
     port: "30000:32767"
     proto: tcp
+  notify: restart ufw
 
 - name: Allow Calico VXLAN (UDP 4789)
   ansible.builtin.ufw:
     rule: allow
     port: "4789"
     proto: udp
+  notify: restart ufw
 
 - name: Allow Kubernetes API (6443) only via localhost tunnel
   when: master_node | default(false)
@@ -29,6 +33,7 @@
     port: "6443"
     proto: tcp
     from_ip: "127.0.0.1"
+  notify: restart ufw
 
 - name: Allow k3s supervisor (9345) on master
   when: master_node | default(false)
@@ -37,3 +42,4 @@
     port: "9345"
     proto: tcp
     from_ip: "{{ cidr_range }}"
+  notify: restart ufw
