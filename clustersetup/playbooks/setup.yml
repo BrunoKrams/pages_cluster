@@ -1,0 +1,45 @@
+- name: Setup Cluster
+  hosts: all
+  become: true
+  gather_facts: true
+
+  vars:
+    cidr_range: "10.42.0.0/16"
+
+  pre_tasks:
+    - name: Verify target system is Debian 13
+      assert:
+        that:
+          - ansible_distribution == "Debian"
+          - (ansible_distribution_major_version | string) == "13"
+        fail_msg: "This playbook only supports Debian 13. Detected: {{ ansible_distribution }} {{ ansible_distribution_version }}"
+        success_msg: "Target system verified: Debian 13"
+      tags: always
+
+    - name: Verify Python interpreter availability
+      assert:
+        that:
+          - ansible_python.executable is defined
+        fail_msg: "Python interpreter not found on target system"
+        success_msg: "Python interpreter available: {{ ansible_python.executable }}"
+      tags: always
+
+    - name: Gather installed package facts
+      package_facts:
+        manager: auto
+      tags: always
+
+    - name: Check that UFW is installed
+      assert:
+        that:
+          - "'ufw' in ansible_facts.packages"
+        fail_msg: "UFW is not installed. Please install the 'ufw' package."
+        success_msg: "UFW is installed."
+      tags: firewall
+
+
+  roles:
+    - role: ufw
+
+
+

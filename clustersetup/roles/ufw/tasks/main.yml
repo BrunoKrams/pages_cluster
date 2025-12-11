@@ -1,0 +1,39 @@
+- name: Allow outgoing by default
+  ansible.builtin.ufw:
+    state: enabled
+    policy: allow
+    direction: outgoing
+
+- name: Allow kubelet port
+  ansible.builtin.ufw:
+    rule: allow
+    port: "10250"
+    proto: tcp
+
+- name: Allow NodePort range
+  ansible.builtin.ufw:
+    rule: allow
+    port: "30000:32767"
+    proto: tcp
+
+- name: Allow Calico VXLAN (UDP 4789)
+  ansible.builtin.ufw:
+    rule: allow
+    port: "4789"
+    proto: udp
+
+- name: Allow Kubernetes API (6443) only via localhost tunnel
+  when: master_node | default(false)
+  ansible.builtin.ufw:
+    rule: allow
+    port: "6443"
+    proto: tcp
+    from_ip: "127.0.0.1"
+
+- name: Allow k3s supervisor (9345) on master
+  when: master_node | default(false)
+  ansible.builtin.ufw:
+    rule: allow
+    port: "9345"
+    proto: tcp
+    from_ip: "{{ cidr_range }}"
