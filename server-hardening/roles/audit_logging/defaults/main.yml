@@ -1,0 +1,10 @@
+---
+# Audit logging configuration
+audit_log_max_size: 8  # MB per log file
+audit_num_logs: 5  # Number of log files to keep
+audit_space_left: 75  # MB - trigger action when disk space falls below this
+audit_space_left_action: syslog  # email, syslog, suspend, single, halt
+audit_admin_space_left: 50  # MB - admin threshold
+audit_admin_space_left_action: suspend  # suspend logging when critically low
+audit_max_log_file_action: rotate  # rotate, keep_logs, ignore
+audit_action_mail_acct: ""  # Email address for notifications; override via inventory (e.g., notification_email)

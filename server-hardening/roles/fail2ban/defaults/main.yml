@@ -1,0 +1,6 @@
+---
+# Fail2ban Configuration
+fail2ban_bantime: 259200  # 3 days
+fail2ban_findtime: 300    # 5 minutes
+fail2ban_maxretry: 3
+fail2ban_action: action_  # action_ = ban only (logs to syslog), action_mw = ban + email

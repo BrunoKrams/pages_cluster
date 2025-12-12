@@ -1,0 +1,24 @@
+---
+# Packages to remove for security/minimization
+packages_to_remove:
+  - telnet
+  - rsh-client
+  - rsh-redone-client
+  - nis
+  - ntpdate
+  - xinetd
+  - talk
+  - talkd
+  - avahi-daemon
+  - cups
+  - nfs-common
+  - rpcbind
+  - bind9
+  - vsftpd
+  - apache2
+  - dovecot-core
+  - samba
+  - snmp
+  - python3-pip 
+  - python3-dev  
+  - python3-doc

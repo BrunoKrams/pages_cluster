@@ -41,5 +41,5 @@
     rule: allow
     port: "9345"
     proto: tcp
-    from_ip: "{{ cidr_range }}"
+    from_ip: "{{ allow_k3s_supervisor_port }}"
   notify: restart ufw

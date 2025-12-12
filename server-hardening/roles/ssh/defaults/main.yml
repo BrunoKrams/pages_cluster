@@ -1,0 +1,7 @@
+---
+# SSH Hardening Configuration
+ssh_port: 22
+ssh_client_alive_interval: 300  # 5 minutes idle timeout
+ssh_client_alive_count_max: 2   # Max client alive messages before disconnect
+ssh_max_auth_tries: 3
+ssh_max_sessions: 3

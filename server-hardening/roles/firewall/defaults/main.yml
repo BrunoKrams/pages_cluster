@@ -1,0 +1,8 @@
+---
+# Firewall Configuration
+firewall_allowed_ports:
+  - 22/tcp  # SSH
+
+firewall_default_incoming: deny
+firewall_default_outgoing: allow
+firewall_logging: "on"

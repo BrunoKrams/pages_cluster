@@ -1,0 +1,28 @@
+// Automatically upgrade packages from these origins
+Unattended-Upgrade::Origins-Pattern {
+    "origin=Debian,codename=${distro_codename},label=Debian-Security";
+{% if auto_updates_install_updates %}
+    "origin=Debian,codename=${distro_codename},label=Debian";
+{% endif %}
+};
+
+// Automatically reboot if required
+Unattended-Upgrade::Automatic-Reboot "{{ auto_updates_auto_reboot }}";
+
+{% if auto_updates_auto_reboot %}
+// Reboot time
+Unattended-Upgrade::Automatic-Reboot-Time "{{ auto_updates_auto_reboot_time }}";
+{% endif %}
+
+// Remove unused automatically installed kernel-related packages
+Unattended-Upgrade::Remove-Unused-Kernel-Packages "true";
+
+// Remove unused dependencies
+Unattended-Upgrade::Remove-Unused-Dependencies "true";
+
+// Automatically remove new unused dependencies after the upgrade
+Unattended-Upgrade::Remove-New-Unused-Dependencies "true";
+
+// Enable logging
+Unattended-Upgrade::SyslogEnable "true";
+Unattended-Upgrade::SyslogFacility "daemon";

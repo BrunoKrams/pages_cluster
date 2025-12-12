@@ -1,0 +1,10 @@
+---
+# Time synchronization configuration
+ntp_servers:
+  - 0.debian.pool.ntp.org
+  - 1.debian.pool.ntp.org
+  - 2.debian.pool.ntp.org
+  - 3.debian.pool.ntp.org
+ntp_fallback_servers:
+  - time.cloudflare.com
+  - time.google.com

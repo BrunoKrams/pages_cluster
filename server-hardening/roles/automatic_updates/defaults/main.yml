@@ -1,0 +1,7 @@
+---
+# Automatic updates configuration
+auto_updates_enabled: true
+auto_updates_install_security: true
+auto_updates_install_updates: false  # Only security updates by default
+auto_updates_auto_reboot: true
+auto_updates_auto_reboot_time: "03:00"

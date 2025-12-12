@@ -1,0 +1,109 @@
+---
+- name: Create systemd mount unit for /tmp with hardening options
+  ansible.builtin.template:
+    src: tmp.mount.j2
+    dest: /etc/systemd/system/tmp.mount
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Reload systemd and remount tmp
+
+- name: Create systemd mount unit for /var/tmp with hardening options
+  ansible.builtin.template:
+    src: var-tmp.mount.j2
+    dest: /etc/systemd/system/var-tmp.mount
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Reload systemd and remount var-tmp
+
+- name: Harden /dev/shm in /etc/fstab
+  ansible.builtin.mount:
+    path: /dev/shm
+    src: tmpfs
+    fstype: tmpfs
+    opts: defaults,noexec,nosuid,nodev
+    state: present
+
+- name: Remount /dev/shm with hardening options
+  ansible.builtin.command: mount -o remount /dev/shm
+  changed_when: true
+
+- name: Set secure permissions on sensitive files
+  ansible.builtin.file:
+    path: "{{ item.path }}"
+    owner: "{{ item.owner }}"
+    group: "{{ item.group }}"
+    mode: "{{ item.mode }}"
+  loop:
+    - { path: '/etc/passwd', owner: 'root', group: 'root', mode: '0644' }
+    - { path: '/etc/shadow', owner: 'root', group: 'shadow', mode: '0640' }
+    - { path: '/etc/group', owner: 'root', group: 'root', mode: '0644' }
+    - { path: '/etc/gshadow', owner: 'root', group: 'shadow', mode: '0640' }
+    - { path: '/etc/passwd-', owner: 'root', group: 'root', mode: '0600' }
+    - { path: '/etc/shadow-', owner: 'root', group: 'shadow', mode: '0600' }
+    - { path: '/etc/group-', owner: 'root', group: 'root', mode: '0600' }
+    - { path: '/etc/gshadow-', owner: 'root', group: 'shadow', mode: '0600' }
+    - { path: '/etc/ssh/sshd_config', owner: 'root', group: 'root', mode: '0600' }
+  ignore_errors: true
+
+- name: Remove cron.deny and at.deny
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: absent
+  loop:
+    - /etc/cron.deny
+    - /etc/at.deny
+
+- name: Create cron files if they don't exist
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: touch
+    owner: root
+    group: root
+    mode: '0600'
+    modification_time: preserve
+    access_time: preserve
+  loop:
+    - /etc/crontab
+    - /etc/cron.allow
+    - /etc/at.allow
+
+- name: Set secure permissions on cron directories
+  ansible.builtin.file:
+    path: "{{ item }}"
+    owner: root
+    group: root
+    mode: '0700'
+    state: directory
+  loop:
+    - /etc/cron.d
+    - /etc/cron.daily
+    - /etc/cron.hourly
+    - /etc/cron.monthly
+    - /etc/cron.weekly
+  ignore_errors: true
+
+- name: Set secure permissions on cron files
+  ansible.builtin.file:
+    path: "{{ item }}"
+    owner: root
+    group: root
+    mode: '0600'
+  loop:
+    - /etc/crontab
+    - /etc/cron.allow
+    - /etc/at.allow
+  ignore_errors: true
+
+- name: Ensure root can use cron and at
+  ansible.builtin.lineinfile:
+    path: "{{ item }}"
+    line: root
+    create: true
+    owner: root
+    group: root
+    mode: '0600'
+  loop:
+    - /etc/cron.allow
+    - /etc/at.allow

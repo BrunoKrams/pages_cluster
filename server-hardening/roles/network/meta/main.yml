@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  author: System Administrator
+  description: Kernel hardening via sysctl for Debian 13
+  license: MIT
+  min_ansible_version: "2.9"
+  platforms:
+    - name: Debian
+      versions:
+        - 13
+  galaxy_tags:
+    - security
+    - kernel
+    - hardening
+    - sysctl
+
+dependencies: []

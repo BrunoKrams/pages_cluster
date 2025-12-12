@@ -1,0 +1,58 @@
+# Ansible artifacts
+*.retry
+.ansible/
+.cache/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# Logs
+*.log
+ansible.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Secrets and sensitive data
+vault-password.txt
+.vault-password.txt
+**/vault-password*.txt
+*.vault
+secrets/
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+.facts/
+/tmp/ansible_facts
+
+# Molecule
+.molecule/
+molecule/*/.molecule/
+
+# Testing
+tests/output/
+test-results/
