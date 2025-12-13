@@ -1,32 +1,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: react-app
+  name: brunokrams-de
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: react-app
+      app: brunokrams-de
   template:
     metadata:
       labels:
-        app: react-app
+        app: brunokrams-de
     spec:
       containers:
-      - name: react-app
-        image: nginx:alpine
+      - name: brunokrams-de
+        image: brunokrams/pages:brunokrams-de-1
         ports:
-        - containerPort: 80
+        - containerPort: 8080
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: react-app
+  name: brunokrams-de
 spec:
   type: ClusterIP
   selector:
-    app: react-app
+    app: brunokrams-de
   ports:
   - port: 80
-    targetPort: 80
+    targetPort: 8080

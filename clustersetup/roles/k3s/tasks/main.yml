@@ -18,3 +18,9 @@
   changed_when: false
   failed_when: k3s_service.stdout.strip() != 'active'
 
+- name: Fetch K3s kubeconfig from remote server
+  when: master_node is defined and master_node
+  fetch:
+    src: "{{ k3s_conf_path }}"
+    dest: "{{ kubeconfig_path }}"
+    flat: true

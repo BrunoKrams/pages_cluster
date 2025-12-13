@@ -1,0 +1,2 @@
+k3s_conf_path: /etc/rancher/k3s/k3s.yaml
+kubeconfig_path: ./kubeconfig.yaml

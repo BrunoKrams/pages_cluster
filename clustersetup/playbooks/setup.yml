@@ -40,12 +40,13 @@
 
   roles:
     - role: ufw
+      tags: [ufw]
       vars:
         allow_k3s_supervisor_port: "{{ cidr_range }}"
     - role: k3s
+      tags: [k3s]
       vars:
         k3s_cluster_cidr: "{{ cidr_range }}"
         calico_version: "v3.31.2"
-
 
 
