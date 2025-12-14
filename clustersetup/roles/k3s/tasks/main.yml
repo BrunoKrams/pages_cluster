@@ -18,6 +18,11 @@
   changed_when: false
   failed_when: k3s_service.stdout.strip() != 'active'
 
+- name: Add Let’s Encrypt support
+  template:
+    src: traefik-config.j2
+    dest: /var/lib/rancher/k3s/server/manifests/traefik-config.yaml
+
 - name: Fetch K3s kubeconfig from remote server
   when: master_node is defined and master_node
   fetch:

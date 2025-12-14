@@ -19,6 +19,9 @@ service:
   port: 80
   targetPort: 8080
 
+traefik:
+  certificateResolver: werner
+
 ingress:
   className: ""
   hosts:
