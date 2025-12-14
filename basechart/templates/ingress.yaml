@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Release.Name }}
+  namespace: {{ required "namespace is required" .Values.namespace }}
+spec:
+  ingressClassName: {{ required "ingress.className is required" .Values.ingress.className }}
+  rules:
+    {{- range required "ingress.hosts is required (list of {host, path?, pathType?})" .Values.ingress.hosts }}
+    - host: {{ required "host is required for each ingress host entry" .host }}
+      http:
+        paths:
+          - path: {{ .path | default "/" }}
+            pathType: {{ .pathType | default "Prefix" }}
+            backend:
+              service:
+                name: {{ $.Release.Name }}
+                port:
+                  number: {{ required "service.port is required" $.Values.service.port }}
+    {{- end }}

@@ -1,0 +1,28 @@
+containerName: app
+
+namespace: brunokrams-de
+
+image:
+  repository: brunokrams/pages
+  tag: brunokrams-de-1
+  pullPolicy: Always
+
+imagePullSecret:
+  name: registry-secret
+  dockerconfigjson_base64: ""
+
+replicaCount: 1
+
+service:
+  port: 80
+  targetPort: 80
+
+ingress:
+  className: traefik
+  hosts:
+    - host: brunokrams.de
+      path: /
+      pathType: Prefix
+    - host: www.brunokrams.de
+      path: /
+      pathType: Prefix

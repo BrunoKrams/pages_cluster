@@ -1,0 +1,36 @@
+# This file documents available values.
+# No defaults are provided on purpose.
+containerName: "app"
+
+namespace: ""
+
+image:
+  repository: ""
+  tag: ""
+  pullPolicy: ""
+
+imagePullSecret:
+  name: "registry-secret"
+  dockerconfigjson_base64: ""
+
+replicaCount: 1
+
+service:
+  port: 80
+  targetPort: 8080
+
+ingress:
+  className: ""
+  hosts:
+    - host: ""
+      path: /
+      pathType: Prefix
+      tls:
+      enabled: false
+      secretName: ""
+    - host: ""
+      path: /
+      pathType: Prefix
+      tls:
+      enabled: false
+      secretName: ""

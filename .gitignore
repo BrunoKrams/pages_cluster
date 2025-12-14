@@ -1,1 +1,3 @@
 clustersetup/playbooks/kubeconfig.yaml
+brunokrams.de/deployment/secret.json
+brunokrams.de/deployment/secret.yml
