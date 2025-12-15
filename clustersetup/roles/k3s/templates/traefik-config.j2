@@ -9,6 +9,9 @@ spec:
       - "--certificatesresolvers.{{ traefik_certificate_resolver }}.acme.email={{ admin_mail }}"
       - "--certificatesresolvers.{{ traefik_certificate_resolver }}.acme.storage=/data/acme.json"
       - "--certificatesresolvers.{{ traefik_certificate_resolver }}.default.acme.httpchallenge.entrypoint=web"
+      - "--entrypoints.web.http.redirections.entrypoint.to=websecure"
+      - "--entrypoints.web.http.redirections.entrypoint.scheme=https"
+      - "--entrypoints.web.http.redirections.entrypoint.permanent=true"
     ports:
       web:
         exposedPort: 80
