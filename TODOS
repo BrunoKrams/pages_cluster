@@ -1,3 +1,4 @@
 -Enable Network policies to seperate the pages
 -Add HTTPS redirection and HTTPS
 -Unify variable usage
+-Rename all YML to YAML

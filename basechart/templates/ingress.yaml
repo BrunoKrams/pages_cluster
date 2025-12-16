@@ -4,7 +4,7 @@ metadata:
   name: {{ .Release.Name }}
   namespace: {{ required "namespace is required" .Values.namespace }}
   annotations:
-    traefik.ingress.kubernetes.io/router.entrypoints: web, websecure
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
     traefik.ingress.kubernetes.io/router.tls.certresolver: {{ required "traefik.certificateResolver is required" .Values.traefik.certificateResolver }}
 spec:
   ingressClassName: {{ required "ingress.className is required" .Values.ingress.className }}
