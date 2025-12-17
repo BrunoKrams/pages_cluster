@@ -5,20 +5,32 @@ metadata:
   namespace: kube-system
 spec:
   valuesContent: |-
+    ports:
+      web:
+        port: 80
+      websecure:
+        port: 443
+
+    persistence:
+      enabled: true
+      path: /data
+      size: 1Gi
+
     additionalArguments:
       - "--certificatesresolvers.{{ traefik_certificate_resolver }}.acme.email={{ admin_mail }}"
       - "--certificatesresolvers.{{ traefik_certificate_resolver }}.acme.storage=/data/acme.json"
       - "--certificatesresolvers.{{ traefik_certificate_resolver }}.acme.httpchallenge.entrypoint=web"
-
       - "--entrypoints.web.http.redirections.entrypoint.to=websecure"
       - "--entrypoints.web.http.redirections.entrypoint.scheme=https"
-      - "--entrypoints.web.http.redirections.entrypoint.permanent=true"
 
-
-    ports:
+    entryPoints:
       web:
-        exposedPort: 80
+        address: ":80/tcp"
+        http:
+          redirections:
+            entryPoint:
+              to: websecure
+              scheme: https
+              permanent: true
       websecure:
-        exposedPort: 8443
-        tls:
-          enabled: true
+        address: ":443/tcp"
