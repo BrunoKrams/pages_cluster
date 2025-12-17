@@ -3,7 +3,7 @@ containerName: app
 namespace: taelchensilvesterlauf-de
 
 image:
-  repository: taelchensilvesterlauf/pages
+  repository: brunokrams/pages
   tag: taelchensilvesterlauf-de-1
   pullPolicy: Always
 

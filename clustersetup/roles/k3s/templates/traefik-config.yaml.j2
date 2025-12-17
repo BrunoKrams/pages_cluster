@@ -20,17 +20,39 @@ spec:
       - "--certificatesresolvers.{{ traefik_certificate_resolver }}.acme.email={{ admin_mail }}"
       - "--certificatesresolvers.{{ traefik_certificate_resolver }}.acme.storage=/data/acme.json"
       - "--certificatesresolvers.{{ traefik_certificate_resolver }}.acme.httpchallenge.entrypoint=web"
-      - "--entrypoints.web.http.redirections.entrypoint.to=websecure"
-      - "--entrypoints.web.http.redirections.entrypoint.scheme=https"
 
     entryPoints:
       web:
         address: ":80/tcp"
-        http:
-          redirections:
-            entryPoint:
-              to: websecure
-              scheme: https
-              permanent: true
       websecure:
         address: ":443/tcp"
+
+    http:
+      routers:
+        # ACME challenge router (no redirect)
+        acme:
+          entryPoints:
+            - web
+          rule: "PathPrefix(`/.well-known/acme-challenge/`)"
+          service: noop
+
+        # Global redirect router
+        redirect:
+          entryPoints:
+            - web
+          rule: "HostRegexp(`{host:.+}`)"
+          middlewares:
+            - https-redirect
+          service: noop
+
+      middlewares:
+        https-redirect:
+          redirectScheme:
+            scheme: https
+            permanent: true
+
+      services:
+        noop:
+          loadBalancer:
+            servers:
+              - url: "http://127.0.0.1"
