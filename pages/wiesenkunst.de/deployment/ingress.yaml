@@ -8,6 +8,7 @@ metadata:
     # Give this router a very low priority so other more-specific Ingresses win
     # Traefik uses integer priorities; higher wins. We set a negative value to make it lowest.
     traefik.ingress.kubernetes.io/router.priority: "-1000"
+    traefik.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: traefik
   # No `host` specified: a hostless rule matches requests regardless of the Host header
