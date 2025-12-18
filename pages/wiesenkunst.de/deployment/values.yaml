@@ -1,0 +1,21 @@
+containerName: app
+
+namespace: wiesenkunst-de
+
+image:
+  repository: brunokrams/pages
+  tag: wiesenkunst-de-1
+  pullPolicy: Always
+
+imagePullSecret:
+  name: registry-secret
+  dockerconfigjson_base64: ""
+
+replicaCount: 1
+
+service:
+  port: 80
+  targetPort: 80
+
+ingress:
+  enabled: false

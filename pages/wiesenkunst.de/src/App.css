@@ -1,0 +1,69 @@
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+}
+
+/* Mobile: < 768px */
+@media (max-width: 767px) {
+  .app {
+    max-width: 100%;
+  }
+}
+
+/* Tablet: 768px - 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .app {
+    max-width: 100%;
+    padding: 0;
+  }
+}
+
+/* Desktop: > 1024px */
+@media (min-width: 1025px) {
+  .app {
+    max-width: 1400px;
+  }
+}
+
+.painters-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Mobile: < 768px - Single column (stacked) */
+@media (max-width: 767px) {
+  .painters-section {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* Tablet: 768px - 1024px - Side by side with adjusted spacing */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .painters-section {
+    flex-direction: row;
+    gap: 2rem;
+    padding: 2rem 1.5rem;
+  }
+}
+
+/* Desktop: > 1024px - Full multi-column layout */
+@media (min-width: 1025px) {
+  .painters-section {
+    flex-direction: row;
+    gap: 3rem;
+    padding: 3rem 2rem;
+  }
+}

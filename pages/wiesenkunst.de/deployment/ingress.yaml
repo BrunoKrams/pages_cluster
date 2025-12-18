@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: wiesenkunst-ingress
+  namespace: wiesenkunst-de
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: web
+    # Give this router a very low priority so other more-specific Ingresses win
+    # Traefik uses integer priorities; higher wins. We set a negative value to make it lowest.
+    traefik.ingress.kubernetes.io/router.priority: "-1000"
+spec:
+  ingressClassName: traefik
+  # No `host` specified: a hostless rule matches requests regardless of the Host header
+  # (this will allow requests to http://<IP>/wiesenkunst to be routed).
+  rules:
+    - http:
+        paths:
+          - path: /wiesenkunst
+            pathType: Prefix
+            backend:
+              service:
+                name: wiesenkunst-de   # replace with your Service name
+                port:
+                  number: 80

@@ -1,0 +1,89 @@
+/* Comic-style fonts: Comic Neue for body, Luckiest Guy for headings */
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&family=Luckiest+Guy&display=swap');
+
+:root {
+  --font: 'Comic Neue', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --heading-font: 'Luckiest Guy', 'Comic Neue', 'Segoe UI', sans-serif;
+  font-family: var(--font);
+  line-height: 1.45;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: var(--text);
+  background-color: var(--bg);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Comic heading treatment */
+h1, h2, h3, h4 {
+  font-family: var(--heading-font);
+  letter-spacing: 0.01em;
+  text-transform: none;
+}
+
+/* Friendly body font adjustments for a comic feel */
+body, p, a, li {
+  font-family: var(--font);
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  /* Place content near the top but keep horizontal centering */
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 320px;
+  min-height: 100vh;
+  padding-top: 3vh; /* slight offset from the top */
+  background-color: var(--bg);
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --text: #2c2416;
+    --bg: #ffe0c3;
+  }
+  a:hover {
+    color: #535bf2;
+  }
+  button {
+    background-color: #e8d4ba;
+  }
+}

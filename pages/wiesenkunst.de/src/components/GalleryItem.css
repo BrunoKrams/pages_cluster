@@ -1,0 +1,121 @@
+.gallery-item {
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(139, 115, 85, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-item__image-container {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.gallery-item__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-item__image {
+  transform: scale(1.05);
+}
+
+.gallery-item__placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.1);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.gallery-item__placeholder-icon {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.gallery-item__placeholder-text {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.gallery-item__info {
+  padding: 1.25rem;
+}
+
+.gallery-item__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.01em;
+}
+
+.gallery-item__artist {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 0.75rem 0;
+  font-style: italic;
+}
+
+.gallery-item__description {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+@media (prefers-color-scheme: light) {
+  .gallery-item {
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(139, 115, 85, 0.2);
+  }
+  
+  .gallery-item:hover {
+    box-shadow: 0 8px 24px rgba(139, 115, 85, 0.15);
+  }
+  
+  .gallery-item__placeholder {
+    background: rgba(139, 115, 85, 0.1);
+    color: rgba(44, 36, 22, 0.5);
+  }
+  
+  .gallery-item__artist {
+    color: rgba(44, 36, 22, 0.6);
+  }
+  
+  .gallery-item__description {
+    color: rgba(44, 36, 22, 0.7);
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-item__info {
+    padding: 1rem;
+  }
+  
+  .gallery-item__title {
+    font-size: 1.125rem;
+  }
+  
+  .gallery-item__artist {
+    font-size: 0.8125rem;
+  }
+  
+  .gallery-item__description {
+    font-size: 0.8125rem;
+  }
+}

@@ -23,6 +23,7 @@ traefik:
   certificateResolver: werner
 
 ingress:
+  enabled: true
   className: ""
   hosts:
     - host: ""

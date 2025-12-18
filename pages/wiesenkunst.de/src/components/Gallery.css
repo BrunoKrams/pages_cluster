@@ -1,0 +1,141 @@
+.gallery {
+  padding: 3rem 2rem;
+}
+
+.gallery__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 2rem 0;
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 2rem;
+  cursor: pointer;
+}
+
+.lightbox__content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: default;
+}
+
+.lightbox__close {
+  position: absolute;
+  top: -3rem;
+  right: 0;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 3rem;
+  cursor: pointer;
+  padding: 0;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.lightbox__close:hover {
+  transform: scale(1.1);
+}
+
+.lightbox__image {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+/* Desktop: 3-4 columns */
+@media (min-width: 1025px) {
+  .gallery__grid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2.5rem;
+  }
+  
+  .gallery {
+    padding: 4rem 2rem;
+  }
+  
+  .gallery__title {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+  }
+}
+
+/* Tablet: 2 columns */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .gallery__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  .gallery {
+    padding: 2.5rem 1.5rem;
+  }
+  
+  .gallery__title {
+    font-size: 2.25rem;
+  }
+}
+
+/* Mobile: 1 column */
+@media (max-width: 767px) {
+  .gallery__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .gallery {
+    padding: 2rem 1rem;
+  }
+  
+  .gallery__title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+
+/* Mobile: 1 column */
+@media (max-width: 767px) {
+  .lightbox {
+    padding: 1rem;
+  }
+
+  .lightbox__close {
+    top: -2.5rem;
+    font-size: 2.5rem;
+  }
+
+  .lightbox__image {
+    max-width: 95vw;
+    max-height: 85vh;
+  }
+}

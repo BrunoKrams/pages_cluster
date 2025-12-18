@@ -1,0 +1,185 @@
+/* Painter profile card */
+.painter-profile {
+  display: flex;
+  gap: 1.5rem; /* increased spacing */
+  padding: 1.875rem; /* increased padding */
+  margin: 0 auto 2.25rem;
+  width: 100%;
+  max-width: 1000px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  background: transparent;
+  border: 1px solid rgba(139, 115, 85, 0.12);
+}
+
+.painter-profile__image-container {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 180px;
+}
+
+.painter-profile__image {
+  display: block;
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+  margin: auto;
+  border-radius: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.painter-profile__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Desktop layout: text left, image right */
+@media (min-width: 769px) {
+  .painter-profile {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .painter-profile__content {
+    order: 1;
+    text-align: left;
+    padding-right: 1.125rem;
+  }
+
+  .painter-profile__image-container {
+    order: 2;
+    flex-shrink: 0;
+    flex-basis: 270px;
+    max-width: 330px;
+    height: 210px;
+  }
+
+  .painter-profile__image {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.painter-profile__name {
+  font-size: 3rem;
+  margin: 0 0 1.5rem 0;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-align: center; /* center the headline */
+}
+
+.painter-profile__bio {
+  font-size: 1.6875rem;
+  line-height: 1.7;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+@media (prefers-color-scheme: light) {
+  .painter-profile {
+    background: rgba(255, 255, 255, 0.4);
+  }
+  .painter-profile__bio {
+    color: #2c2416;
+  }
+}
+
+/* Mobile / narrow screens: stacked layout */
+@media (max-width: 768px) {
+  .painter-profile {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+    align-items: center; /* center children horizontally on mobile */
+  }
+
+  .painter-profile__image-container {
+    width: 165px;
+    height: 165px;
+    order: 2; /* place image below the text */
+    margin: 0 auto; /* center the image container */
+  }
+
+  .painter-profile__image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .painter-profile__name {
+    font-size: 2.25rem;
+    text-align: center;
+  }
+
+  .painter-profile__bio {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .painter-profile__image {
+    width: 210px;
+    height: 210px;
+  }
+  .painter-profile__name {
+    font-size: 2.625rem;
+  }
+  .painter-profile__bio {
+    font-size: 1.5rem;
+  }
+}
+
+/* Modal styles (left in place if needed later) */
+.painter-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.painter-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+}
+.painter-modal__content {
+  position: relative;
+  z-index: 10000;
+  padding: 0;
+  display: inline-block;
+}
+.painter-modal__image {
+  display: block;
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+}
+.painter-modal__close {
+  position: absolute;
+  right: -12px;
+  top: -12px;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 20px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}

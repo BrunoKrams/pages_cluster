@@ -4,7 +4,7 @@ namespace: taelchensilvesterlauf-de
 
 image:
   repository: brunokrams/pages
-  tag: taelchensilvesterlauf-de-2
+  tag: taelchensilvesterlauf-de-5
   pullPolicy: Always
 
 imagePullSecret:

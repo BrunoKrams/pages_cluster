@@ -1,6 +1,0 @@
-<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
-  <rect width="300" height="300" fill="#a8c5e8"/>
-  <circle cx="150" cy="120" r="50" fill="#6b9bd1"/>
-  <ellipse cx="150" cy="220" rx="80" ry="100" fill="#6b9bd1"/>
-  <text x="150" y="280" font-family="Arial, sans-serif" font-size="16" fill="#fff" text-anchor="middle">Marcus Chen</text>
-</svg>
