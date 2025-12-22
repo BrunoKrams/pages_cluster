@@ -18,6 +18,6 @@ jobs:
       env:
         TOKEN: ${{ secrets.DOCKER_REGISTRY }}
       run: cd pages/wiesenkunst.de && \
-        echo "$env.TOKEN" | docker login -u brunokrams --password-stdin \
+        echo "$TOKEN" | docker login -u brunokrams --password-stdin && \
         docker build -t brunokrams/pages:wiesenkunst-2 . && \
         docker push brunokrams/pages:wiesenkunst-2
