@@ -4,7 +4,7 @@ namespace: brunokrams-de
 
 image:
   repository: brunokrams/pages
-  tag: brunokrams-de-1
+  tag: placeholder-1
   pullPolicy: Always
 
 imagePullSecret:

@@ -26,3 +26,10 @@
     mode: "0644"
   notify: Restart traefik
 
+- name: Fetch K3s kubeconfig from remote server
+  when: master_node is defined and master_node
+  fetch:
+    src: "/etc/rancher/k3s/k3s.yaml"
+    dest: "{{ kubeconfig_path }}"
+    flat: true
+
