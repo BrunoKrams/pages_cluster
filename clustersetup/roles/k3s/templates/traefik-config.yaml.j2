@@ -20,9 +20,8 @@ spec:
       # ACME / Let's Encrypt
       - "--certificatesresolvers.{{ traefik_certificate_resolver }}.acme.email={{ admin_mail }}"
       - "--certificatesresolvers.{{ traefik_certificate_resolver }}.acme.storage=/data/acme.json"
-      - "--certificatesresolvers.{{ traefik_certificate_resolver }}.acme.httpchallenge.entrypoint=web"
+      - "--certificatesresolvers.{{ traefik_certificate_resolver }}.acme.tlschallenge=true"
 
       # Global HTTP → HTTPS redirect
       - "--entrypoints.web.http.redirections.entryPoint.to=websecure"
       - "--entrypoints.web.http.redirections.entryPoint.scheme=https"
-
