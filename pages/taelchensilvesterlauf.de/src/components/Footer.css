@@ -1,5 +1,5 @@
 .footer {
-  margin-top: 4rem;
+  margin-top: 0; /* avoid pushing beyond viewport */
   padding: 2rem 1rem;
   border-top: 1px solid rgba(139, 115, 85, 0.2);
   background: rgba(255, 255, 255, 0.2);
@@ -46,7 +46,7 @@
 @media (max-width: 768px) {
   .footer {
     padding: 1.5rem 1rem;
-    margin-top: 3rem;
+    margin-top: 0;
   }
 
   .footer__links {

@@ -1,0 +1,35 @@
+.results-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ergebnisse-table-container {
+  margin-bottom: 2.5rem;
+  width: 100%;
+  max-width: 500px;
+}
+
+.ergebnisse-table-title {
+  margin-bottom: 0.5rem;
+}
+
+.ergebnisse-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255,255,255,0.7);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.ergebnisse-table th {
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+  padding: 0.5rem;
+}
+
+.ergebnisse-table td {
+  padding: 0.5rem;
+  border-bottom: 1px solid #eee;
+}

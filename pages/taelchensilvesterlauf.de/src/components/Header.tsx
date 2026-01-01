@@ -1,4 +1,5 @@
 import './Header.css';
+import NavTabs from './NavTabs';
 
 const Header = () => {
   return (
@@ -8,6 +9,7 @@ const Header = () => {
        </span>
         Tälchen Silvesterlauf
       </h2>
+      <NavTabs />
     </header>
   );
 };

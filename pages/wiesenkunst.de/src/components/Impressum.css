@@ -1,0 +1,25 @@
+.impressum {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.impressum h1 {
+  font-family: var(--font-title);
+  font-size: 2rem;
+  margin: 0 0 0.75rem 0;
+  letter-spacing: -0.01em;
+}
+
+.impressum p {
+  line-height: 1.6;
+}
+
+.impressum a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.impressum a:hover {
+  color: var(--color-accent-hover);
+}

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { GalleryItemModel } from '../types';
+import type { GalleryItemModel } from '../model/types';
 import GalleryItem from './GalleryItem';
 import './Gallery.css';
 
@@ -18,8 +18,7 @@ const Gallery = ({ galleryItems }: GalleryProps) => {
   };
 
   return (
-    <section className="gallery">
-      <h2 className="gallery__title">Gallerie</h2>
+    <section className="gallery" id="gallery">
       <div className="gallery__grid">
         {galleryItems.map((galleryItem) => (
           <GalleryItem

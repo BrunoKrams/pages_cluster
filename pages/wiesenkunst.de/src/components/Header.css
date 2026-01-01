@@ -2,7 +2,7 @@
   text-align: center;
   padding: 3rem 2rem;
   margin-bottom: 2rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .header__title {
@@ -13,20 +13,10 @@
 }
 
 .header__tagline {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   margin: 0;
-  color: rgba(255, 255, 255, 0.7);
-  font-weight: 300;
-}
-
-@media (prefers-color-scheme: light) {
-  .header {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  }
-  
-  .header__tagline {
-    color: rgba(0, 0, 0, 0.6);
-  }
+  color: var(--color-muted);
+  font-weight: bold;
 }
 
 @media (max-width: 768px) {

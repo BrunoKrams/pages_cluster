@@ -1,7 +1,7 @@
 .header {
   text-align: center;
-  padding: 3rem 2rem;
-  margin-bottom: 2rem;
+  padding: 2rem 1.5rem; /* slightly tighter to fit viewport */
+  margin-bottom: 1.5rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -35,6 +35,70 @@
   font-weight: 300;
 }
 
+/* Navigation */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.nav__toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.nav__hamburger,
+.nav__hamburger::before,
+.nav__hamburger::after {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  position: relative;
+}
+.nav__hamburger::before,
+.nav__hamburger::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+.nav__hamburger::before { top: -6px; }
+.nav__hamburger::after { top: 6px; }
+
+.nav__list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav__item { margin: 0; }
+
+.nav__link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.15);
+  color: inherit;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.nav__link:hover {
+  background: rgba(0,0,0,0.25);
+  border-color: rgba(255,255,255,0.25);
+}
+
 @media (prefers-color-scheme: light) {
   .header {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -43,11 +107,14 @@
   .header__tagline {
     color: rgba(0, 0, 0, 0.6);
   }
+  .nav__toggle { background: rgba(255,255,255,0.8); border-color: rgba(0,0,0,0.1); }
+  .nav__link { background: rgba(255,255,255,0.7); border-color: rgba(0,0,0,0.1); }
+  .nav__link:hover { background: rgba(255,255,255,0.9); }
 }
 
 @media (max-width: 768px) {
   .header {
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem;
   }
   
   .header__title {
@@ -57,4 +124,24 @@
   .header__tagline {
     font-size: 1rem;
   }
+
+  .nav {
+    justify-content: space-between;
+    max-width: 640px;
+    margin: 1rem auto 0;
+    padding: 0 0.5rem;
+  }
+  .nav__toggle { display: inline-flex; }
+  .nav__list { display: none; }
+  .nav.nav--open .nav__list {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+    background: rgba(0,0,0,0.1);
+    padding: 0.75rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  .nav.nav--open .nav__link { text-align: center; }
 }

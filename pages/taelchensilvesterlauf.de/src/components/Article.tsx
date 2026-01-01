@@ -8,7 +8,6 @@ interface ArticleProps {
 }
 
 const Article = ({ title, content, image }: ArticleProps) => {
-  
 
   return (
     <div className="article">

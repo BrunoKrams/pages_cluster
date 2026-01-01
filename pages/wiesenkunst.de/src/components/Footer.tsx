@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer__content">
         <div className="footer__links">
-          <a href="#impressum" className="footer__link">Impressum</a>
+          <a href="/impressum" className="footer__link">Impressum</a>
           <span className="footer__separator">|</span>
           <a href="#contact" className="footer__link">Kontakt</a>
           <span className="footer__separator">|</span>

@@ -32,38 +32,3 @@
   }
 }
 
-.painters-section {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  padding: 2rem 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Mobile: < 768px - Single column (stacked) */
-@media (max-width: 767px) {
-  .painters-section {
-    flex-direction: column;
-    gap: 1.5rem;
-    padding: 1.5rem 1rem;
-  }
-}
-
-/* Tablet: 768px - 1024px - Side by side with adjusted spacing */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .painters-section {
-    flex-direction: row;
-    gap: 2rem;
-    padding: 2rem 1.5rem;
-  }
-}
-
-/* Desktop: > 1024px - Full multi-column layout */
-@media (min-width: 1025px) {
-  .painters-section {
-    flex-direction: row;
-    gap: 3rem;
-    padding: 3rem 2rem;
-  }
-}

@@ -1,4 +1,6 @@
-import type { Painter, Painting } from '../types';
+import type { Painter } from './painter';
+import type { Painting } from './painting';
+
 import alex from '../assets/images/alex.jpg';
 import markus from '../assets/images/markus.jpg';
 

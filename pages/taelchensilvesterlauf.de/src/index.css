@@ -42,12 +42,11 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  /* Place content near the top but keep horizontal centering */
   align-items: flex-start;
   justify-content: center;
   min-width: 320px;
-  min-height: 100vh;
-  padding-top: 3vh; /* slight offset from the top */
+  min-height: 100dvh; /* ensure viewport height matches device UI */
+  padding-top: 0; /* avoid extra vertical overflow */
   background-color: var(--bg);
 }
 
