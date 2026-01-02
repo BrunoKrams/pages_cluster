@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { Painting } from '../data/painter';
+import type { Painting } from '../data/painting';
 import GalleryItem from './GalleryItem';
 import './Gallery.css';
 

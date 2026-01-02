@@ -19,19 +19,11 @@ const GalleryItem = ({ title, artist, imageUrl, description, onImageClick }: Gal
   return (
     <div className="gallery-item">
       <div className="gallery-item__image-container" onClick={onImageClick}>
-        {imageError ? (
-          <div className="gallery-item__placeholder">
-            <span className="gallery-item__placeholder-icon">🖼️</span>
-            <span className="gallery-item__placeholder-text">Image unavailable</span>
-          </div>
-        ) : (
           <img
             src={imageUrl}
             alt={`${title} by ${artist}`}
             className="gallery-item__image"
-            onError={handleImageError}
           />
-        )}
       </div>
       <div className="gallery-item__info">
         <h3 className="gallery-item__title">{title}</h3>

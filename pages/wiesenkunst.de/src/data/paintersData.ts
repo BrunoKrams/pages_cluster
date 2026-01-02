@@ -9,7 +9,6 @@ import blick_ueber_niedermennig from '../../src/assets/images/markus/blick_ueber
 import bild_1 from '../../src/assets/images/alex/1.jpg';
 import bild_2 from '../../src/assets/images/alex/2.jpg';
 
-
 export const painters: Painter[] = [
   {
     id: '1',
@@ -20,7 +19,7 @@ export const painters: Painter[] = [
   {
     id: '2',
     name: 'Markus',
-    bio: 'Markus ist Mathematiker und Softwareentwickler und spezialisiert sich in seiner künstlerischen Arbeit auf Landschafts- und Naturmalerei. Er fängt die ruhige Schönheit der natürlichen Welt ein. Sein realistischer Stil und seine Liebe zum Detail erwecken Szenen zum Leben und laden die Betrachter ein, die Ruhe und Majestät unberührter Landschaften zu erleben.',
+    bio: 'Markus ist Mathematiker und Softwareentwickler. In seiner Freizeit malt er Ansichten seiner Heimatstadt Konz und der umliegenden Natur. Seine Werke zeichnen sich durch lebendige Farben aus, die die Essenz der Landschaften einfangen.',
     profileImage: markus
   }
 ];
@@ -31,6 +30,7 @@ export const paintings: Painting[] = [
     title: 'Ballons',
     artistId: '2',
     artistName: 'Markus',
+    technique: 'Acryl auf Leinwand',
     imageUrl: ballons,
     description: 'Ein explosives abstraktes Werk mit kräftigen Rot- und Orangetönen, das Leidenschaft und Energie hervorruft.'
   },
@@ -39,6 +39,7 @@ export const paintings: Painting[] = [
     title: 'Bild 1',
     artistId: '1',
     artistName: 'Alex',
+    technique: 'Acryl auf Leinwand',
     imageUrl: bild_1,
     description: 'Eine atemberaubende Landschaft mit schneebedeckten Gipfeln unter einem klaren Morgenhimmel.'
   },
@@ -47,6 +48,7 @@ export const paintings: Painting[] = [
     title: 'Blick über Niedermennig',
     artistId: '2',
     artistName: 'Markus',
+    technique: 'Acryl auf Leinwand',
     imageUrl: blick_ueber_niedermennig,
     description: 'Eine beruhigende abstrakte Komposition mit fließenden Blautönen und subtilen Texturen.'
   },
@@ -55,6 +57,7 @@ export const paintings: Painting[] = [
     title: 'Bild 2',
     artistId: '1',
     artistName: 'Alex',
+    technique: 'Acryl auf Leinwand',
     imageUrl: bild_2,
     description: 'Ein lebendiges Stadtbild bei Sonnenuntergang mit warmen, einladenden Farben.'
   }

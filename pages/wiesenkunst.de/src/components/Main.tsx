@@ -13,12 +13,7 @@ function Main() {
       
       <section className="painters-section">
         {painters.map((painter) => (
-          <PainterProfile
-            key={painter.id}
-            name={painter.name}
-            bio={painter.bio}
-            image={painter.profileImage}
-          />
+          <PainterProfile painter={painter} key={painter.id} />
         ))}
       </section>
 
