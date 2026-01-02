@@ -23,6 +23,10 @@
     gap: 2rem;
     padding: 2rem 1.5rem;
   }
+  .painters-section > .painter-profile {
+    flex: 1 1 0;
+    min-width: 0;
+  }
 }
 
 /* Desktop: > 1024px - Full multi-column layout */
@@ -31,5 +35,9 @@
     flex-direction: row;
     gap: 3rem;
     padding: 3rem 2rem;
+  }
+  .painters-section > .painter-profile {
+    flex: 1 1 0;
+    min-width: 0;
   }
 }
